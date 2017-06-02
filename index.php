@@ -27,11 +27,15 @@
         $content = file_get_contents('posts/'.$file);
         echo '<p>'.$content.'</p>';
         echo '<form  method="GET" action="delete.php">
-       <input type="hidden" name="fileName" value="'.$file.'">
+       <input type="hidden" name="filename" value="'.$file.'">
   <input type="submit" value="delete">
    </form>';
+  echo '<form  method="GET" action="create.php">
+       <input type="hidden" name="filename" value="'.$file.'">
+  <input type="submit" value="edit">
+   </form>';
     }
-   
+
     ?>
      
 
