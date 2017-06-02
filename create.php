@@ -1,16 +1,17 @@
 <?php
 // on met le php avant le html parceque le php s'exicute avant le html
 $titre="";
-// on déclare des fariables vides pour le titre et le cotenu de formulaire
+// on déclare des variables vides pour le titre et le cotenu de formulaire
 $contenu=""; 
-  if (isset($_GET['filename'])){ //si le fichier filename existe 
+  if (isset($_GET['filename'])){ //si le fichier "filename" existe 
   //on récupere le titre et le contenu 
-  $titre = $_GET['filename'];
-  // on utilise file_get_contents pour les textarea 
+  $titre = basename($_GET['filename'],".txt");// on met basename pour enlever les txt et prendre les modification
+  // on utilise file_get_contents pour le contenu textarea 
   $contenu = file_get_contents('posts/'.$_GET['filename']);
   }
 
-?><!DOCTYPE html>
+?><!DOCTYPE html> <!-- il faut accrocher la balise fermer de php à la balise html
+pour ne pas avoir d'espace dans notre code source-->
 <html lang="fr">
 
 <head>
@@ -32,9 +33,12 @@ $contenu="";
 
       <p><button name="create">creat</button></p>
     </form>
+    <!--
+        une autre façon pour afficher le contenu et le titre :
     <?php
         echo "<p>" . $contenu . "</p>";
     ?>
+    -->
 </body>
 
 </html>

@@ -30,6 +30,7 @@
        <input type="hidden" name="filename" value="'.$file.'">
   <input type="submit" value="delete">
    </form>';
+   
   echo '<form  method="GET" action="create.php">
        <input type="hidden" name="filename" value="'.$file.'">
   <input type="submit" value="edit">
